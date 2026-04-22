@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: jugadon-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jugadon
+      POSTGRES_PASSWORD: jugadon_secret
+      POSTGRES_DB: jugadon_blog
+    ports:
+      - "5432:5432"
+    volumes:
+      - jugadon_pgdata:/var/lib/postgresql/data
+    mem_limit: 512m
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_buffers=128MB"
+      - "-c"
+      - "effective_cache_size=256MB"
+      - "-c"
+      - "work_mem=16MB"
+      - "-c"
+      - "maintenance_work_mem=64MB"
+      - "-c"
+      - "max_connections=50"
+      - "-c"
+      - "wal_buffers=8MB"
+      - "-c"
+      - "checkpoint_completion_target=0.9"
+      - "-c"
+      - "random_page_cost=1.1"
+      - "-c"
+      - "log_min_duration_statement=1000"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jugadon -d jugadon_blog"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  jugadon_pgdata:
+    name: jugadon_pgdata
