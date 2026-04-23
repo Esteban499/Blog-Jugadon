@@ -17,8 +17,6 @@ import { Providers } from './collections/Providers'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -47,16 +45,13 @@ export default buildConfig({
     push: true,
   }),
   plugins: [
-    ...(isProduction && process.env.BLOB_READ_WRITE_TOKEN
-      ? [
-          vercelBlobStorage({
-            collections: {
-              media: true,
-            },
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-          }),
-        ]
-      : []),
+    vercelBlobStorage({
+      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN ?? '',
+    }),
   ],
   upload: {
     limits: {
