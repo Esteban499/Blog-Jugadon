@@ -4,15 +4,15 @@ import {
   BlocksFeature,
   EXPERIMENTAL_TableFeature,
 } from '@payloadcms/richtext-lexical'
-import { CalloutBlock } from '../blocks/CalloutBlock.ts'
-import { ImageBlock } from '../blocks/ImageBlock.ts'
-import { VideoEmbedBlock } from '../blocks/VideoEmbedBlock.ts'
-import { GameCardBlock } from '../blocks/GameCardBlock.ts'
-import { CTABlock } from '../blocks/CTABlock.ts'
-import { FAQBlock } from '../blocks/FAQBlock.ts'
-import { HighlightBlock } from '../blocks/HighlightBlock.ts'
-import { ColumnsBlock } from '../blocks/ColumnsBlock.ts'
-import { HtmlEmbedBlock } from '../blocks/HtmlEmbedBlock.ts'
+import { CalloutBlock } from '../blocks/CalloutBlock'
+import { ImageBlock } from '../blocks/ImageBlock'
+import { VideoEmbedBlock } from '../blocks/VideoEmbedBlock'
+import { GameCardBlock } from '../blocks/GameCardBlock'
+import { CTABlock } from '../blocks/CTABlock'
+import { FAQBlock } from '../blocks/FAQBlock'
+import { HighlightBlock } from '../blocks/HighlightBlock'
+import { ColumnsBlock } from '../blocks/ColumnsBlock'
+import { HtmlEmbedBlock } from '../blocks/HtmlEmbedBlock'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
