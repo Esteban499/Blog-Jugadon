@@ -6,13 +6,13 @@ import { es } from '@payloadcms/translations/languages/es'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { Users } from './collections/Users'
-import { Posts } from './collections/Posts'
-import { Categories } from './collections/Categories'
-import { Media } from './collections/Media'
-import { Games } from './collections/Games'
-import { Courses } from './collections/Courses'
-import { Providers } from './collections/Providers'
+import { Users } from './collections/Users.ts'
+import { Posts } from './collections/Posts.ts'
+import { Categories } from './collections/Categories.ts'
+import { Media } from './collections/Media.ts'
+import { Games } from './collections/Games.ts'
+import { Courses } from './collections/Courses.ts'
+import { Providers } from './collections/Providers.ts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
