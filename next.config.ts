@@ -11,6 +11,7 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  deploymentId: process.env.VERCEL_DEPLOYMENT_ID,
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
@@ -27,4 +28,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withPayload(nextConfig, { devBundleServerPackages: true });
+export default withPayload(nextConfig, { devBundleServerPackages: false });
