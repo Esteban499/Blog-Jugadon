@@ -90,7 +90,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
         ],
       },
       limit: 1,
-      depth: 2,
+      depth: 1,
     })
     return result.docs.length ? (result.docs[0] as unknown as Post) : null
   } catch {
